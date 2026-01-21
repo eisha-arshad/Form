@@ -1,0 +1,724 @@
+.page {
+  max-width: 900px;
+  width: 100%;
+  margin: auto;
+  padding: 8px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, "Helvetica Neue", sans-serif;
+  color: #000;
+  font-size: 10.5pt;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+table,
+input,
+span,
+td,
+th {
+  font-size: 10.5pt;
+}
+* {
+  color: #000000;
+}
+body {
+  background: #FFFFFF;
+}
+
+table { width:100%; border-collapse:collapse; }
+
+.logoCell {
+  width:55%;
+  text-align:center;
+  border-right:none !important; /* 👈 FIX */
+}
+
+.infoCell {
+  border-left:none !important;  /* 👈 FIX */
+  padding-top:25px;
+}
+
+.logoCell {
+  width:55%;
+  text-align:left;          /* 👈 center se left */
+  padding-left:20px;        /* 👈 thora left shift */
+  border-right:none !important;
+}
+
+
+
+.logoCell img {
+  width:130px;
+}
+
+.dealer {
+  font-weight: normal;
+  font-size: 16pt;
+  margin-top: 5px;
+}
+
+.infoCell {
+  padding-top:25px; /* 👈 neeche shift */
+}
+
+.infoTable {
+  width:100%;
+  border-collapse:collapse;
+  width:70%;          /* 👈 aur chota */
+  margin-left:auto;
+}
+
+.infoTable td {
+  font-size: 10pt;
+  padding: 4px;
+  border: 1px solid #000;
+}
+
+/* first column (labels) */
+.infoTable td:first-child {
+  
+  width:40%;
+}
+
+/* second column (writing area) */
+.infoTable td:last-child {
+  width:60%;
+}
+.infoTable input {
+  width:100%;
+  border:none;
+  outline:none;
+  background-color: transparent !important;
+}
+
+.headerFields { padding:10px; }
+.hrow { display:flex; justify-content:space-between; margin-bottom:6px; }
+.hrow input { width:160px; border:1px solid #000; }
+
+.bikes td {
+  border: 1px solid #000;
+  text-align: center;
+  width: 50%;
+}
+
+/* 👇 Remove vertical border between bike images */
+.bikes td:first-child {
+  border-right: none !important;
+}
+
+.bikes td:last-child {
+  border-left: none !important;
+}
+.bikes {
+  margin-top: 12px;  
+  margin-bottom: 12px; /* 8–16px try kar sakte ho */
+}
+
+
+.bikes img { width:90%; }
+
+/* ===== SECTION TABLE (like bikes image) ===== */
+.section {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #000;
+  margin-top: 0; 
+  margin-top: 12px;       /* 👈 space khatam */
+}
+
+/* two main columns */
+.section td {
+  width: 50%;
+  vertical-align: top;
+  padding: 8px;
+}
+
+/* 👇 REMOVE middle line */
+.section td:first-child {
+  border-right: none;
+}
+.section td:last-child {
+  border-left: none;
+}
+
+/* ===== SECTION HEAD ===== */
+.head td {
+  font-size: 16pt;
+  background: transparent;
+  color: #000;
+  font-weight: 800;
+  text-align: center;
+  padding: 6px;
+  border-bottom: 1px solid #000; /* 👈 thin */
+}
+
+
+
+
+
+.row { display:flex; align-items:center; margin:6px; }
+.row span:first-child { flex:1; }
+/* Base box style */
+.box {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #000;
+  margin-left: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.gridHeader {
+  display: grid;
+  grid-template-columns: 1fr 80px 80px 80px;
+  font-size: 11px;
+  font-weight: normal;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.gridRow {
+  display: grid;
+  grid-template-columns: 1fr 80px 80px 80px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.itemName {
+  font-size: 12pt;         /* 👈 12–14 pt */
+  font-weight: 600;
+}
+
+.gridBox {
+  width: 60px;
+  height: 24px;
+  border: 1px solid #D3D3D3;  /* 👈 light gray */
+  border-radius: 8px;
+  background: #fff;
+  padding: 6px 0px;
+}
+
+
+/* Border colors */
+.excellent {
+  border-color: green;
+}
+
+.medium {
+  border-color: orange;
+}
+
+.bad {
+  border-color: red;
+}
+
+/* Fill on click */
+.active.excellent {
+  background-color: green;
+}
+
+.active.medium {
+  background-color: orange;
+}
+
+.active.bad {
+  background-color: red;
+}
+
+
+.active { background:#000; }
+
+.request td { border:1px solid #000; }
+.listHead {
+  background: #000;
+  color: #fff;
+  padding: 5px;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+.line {
+  border-bottom: 1px solid #000;
+  height: 18px;
+}
+
+
+.quality th,
+.quality td {
+  font-size: 12pt;
+  border: 1px solid #000;
+}
+
+.quality thead tr:first-child th {
+  background: transparent;
+  color: #000;
+  font-weight: bold;
+}
+.customer {
+  margin-top: 12px;                 /* 🔥 gap */
+  border: 1px solid #000;         /* 🔥 full border */
+  padding: 12px;
+}
+
+.customer p {
+  border-bottom: 1px solid #000;    /* 🔥 individual line */
+  padding-bottom: 6px;
+  margin-bottom: 10px;
+}
+
+.ar {
+  font-family: "Arial Arabic", Arial, sans-serif;
+  text-align: right;
+  direction: rtl;
+  font-size: 10.5pt;
+  color: #333;
+}
+
+
+.customerGrid {
+  display:grid;
+  grid-template-columns: 1fr 2fr;
+  gap:6px;
+}
+.customerGrid span {
+  font-size: 12pt;
+}
+
+.time { margin-top:10px; }
+.sectionBox { border: 1px solid #ccc; margin-top: 20px;
+   padding: 10px; background: #fff; border-radius: 6px; } 
+.sectionTitle { text-align: center; font-weight: bold; 
+  font-size: 14px; margin-bottom: 10px; background: #f2f2f2; padding: 6px; border-bottom: 1px solid #ccc; }
+  /* ================= REQUEST / REMARKS ================= */
+/* OUTER holder */
+.requestWrapper {
+  width: 100%;
+  border: 1px solid #000;   /* form ka border */
+  border-collapse: collapse;
+  margin-top: 6px;
+}
+
+.requestWrapper td {
+  width: 50%;                 /* 🔥 equal width */
+  vertical-align: top;
+  padding: 0;
+  border: none;  
+}
+
+/* INNER tables */
+.reqTable {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #000;     /* 🔥 full box */
+}
+
+/* header */
+.reqTable th {
+  background: #000;
+  color: #fff;
+  font-size: 12pt;
+  padding: 6px;
+  text-align: center;
+  border-bottom: 1px solid #000;
+}
+
+/* rows */
+.reqTable td {
+  height: 18px;
+  border-bottom: 1px solid #000;
+  padding-left: 6px;
+}
+
+/* numbers */
+.reqNo {
+  font-size: 11pt;
+  font-weight: normal;
+}
+/* REQUESTED JOB / REMARKS me middle line allow */
+.requestWrapper td:first-child {
+  border-right: 1px solid #000 !important;
+}
+.requestWrapper td:last-child {
+  border-left: 1px solid #000 !important;
+}
+.reqBlock {
+  display: flex;
+  gap: 12px;                 /* inner blocks ke darmiyan gap */
+  padding: 12px;             /* 🔥 main border se andar gap */
+  margin-top: 12px;          /* sections se gap */
+
+  border: 1px solid #000;  /* 🔥 MAIN OUTER BORDER */
+  box-sizing: border-box;
+}
+
+
+
+/* each table box */
+.reqBox {
+  width: 50%;
+  border: 1px solid #00000057; /* 🔥 full box */
+  margin: 10px 10px;
+  border-radius: 12px 12px 0px 0px;
+  
+  /* border-right: 1px;
+  border-right: 1px; */
+}
+
+/* black header */
+.reqHead {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 10pt;
+  padding: 6px;
+  font-weight: 800;
+  border-radius: 10px 10px 0px 0px;
+  border-bottom: 1px solid #000;
+}
+
+/* rows */
+.reqRow {
+  height: 18px;
+  border-bottom: 1px solid #000;  /* 🔥 separate horizontal lines */
+  display: flex;
+  align-items: center;
+  padding-left: 6px;
+  font-size: 11pt;
+  font-weight: normal;
+  
+}
+.reqInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 11pt;
+  background: transparent;
+  padding-left: 6px;
+}
+/* ================= QUALITY CHECK ================= */
+.qcTable {
+  width: 100%;
+  font-weight: normal;
+  border-collapse: collapse;
+  font-size: 11pt;
+}
+
+.qcTitle {
+  background: #d80000;
+  color: #fff;
+  font-weight: bold;
+  padding: 6px;
+  border: 1px solid #000;
+}
+/* Outer wrapper to preserve form lines */
+.qcHeaderWrapper {
+  width: 100%;
+  padding: 0 12px;      /* horizontal spacing from form edges */
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Red header box */
+.qcHeaderRow {
+  display: inline-block;
+  background: #d80000;
+  color: #fff;
+  font-weight: bold;
+  padding: 6px 0;       /* only vertical padding */
+  text-align: center;
+  /* border: 1px solid #000; */
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;            /* stays above lines but doesn't cut them */
+  margin: 0 auto;  
+  margin-top: 12px;
+  
+}
+
+
+
+.qcHeadRow th {
+  background: #000;
+  color: #fff;
+  font-weight: normal; 
+  font-size: 10.5pt;
+  border: 1px solid #000;
+}
+
+.qcTable td {
+  height: 24px;
+  border: 1px solid #000;
+}
+
+/* ================= NOTE ================= */
+.noteBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #000;
+  border-top: none;
+  padding: 6px;
+}
+
+.noteTitle {
+  color: #d80000;
+  font-size: 10.5pt;
+  font-weight: normal;
+}
+
+.noteText {
+  font-size: 10.5pt;
+}
+
+.noteArBlock {
+  direction: rtl;
+  text-align: right;
+}
+
+.noteTextAr {
+  font-family: "Arial Arabic", Arial, sans-serif;
+  font-size: 10.5pt;
+}
+
+/* ================= CUSTOMER ================= */
+
+.customerTable {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #000;
+  border-top: none;
+  margin-top: 12px; 
+}
+
+.customerTable td {
+  height: 22px;
+  padding-left: 6px;
+   border: 1px solid #000; 
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-left: none;
+   font-weight: normal;     /* 🔥 unbold */
+  font-size: 10.5pt;
+  border-right: none; /* 🔥 vertical lines removed */
+  padding: 8px;
+}
+
+.arCell {
+  direction: rtl;
+  text-align: right;
+  font-family: "Arial Arabic", Arial, sans-serif;
+}
+
+/* ================= TIME ================= */
+/* .timeRow {
+  display: flex;
+  margin-top: 12px;  
+  justify-content: space-between;
+  border: 1px solid #000;
+  border-top: 1px solid #000;
+   padding: 12px;
+  gap: 16px;
+} */
+
+/* ================= BOTTOM RED ================= */
+.bottomRed {
+  height: 6px;
+  background: #d80000;
+  margin: 6px 0; /* add spacing above */
+  border-radius: 2px; /* slightly rounded */
+}
+
+.qcTable input,
+.customerTable input,
+.timeRow input {
+  width: 90%;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.signImg {
+  height: 40px;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalBox {
+  background: #fff;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.signPad {
+  width: 300px;
+  height: 120px;
+  border: 1px solid #000;
+}
+
+.modalBtns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+/* ================= TIME ROW ================= */
+.timeRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  padding: 8px;
+  border: 1px solid #000;
+  border-top: none;
+  
+}
+
+/* Each Field */
+.timeField {
+  display: flex;
+  flex-direction: column;
+  font-weight: normal;     /* 🔥 unbold */
+  font-size: 9pt;
+}
+
+/* Small label */
+.timeField label {
+  font-weight: bold;
+  font-size: 9pt;
+  margin-bottom: 2px;
+}
+
+/* Clean input */
+.timeField input {
+  border: none;
+  border-bottom: 1px solid #000;
+  outline: none;
+  background: transparent;
+  font-size: 11pt;
+  padding: 2px 0;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Remove ugly placeholders */
+.timeField input::-webkit-datetime-edit {
+  color: #000;
+}
+
+.timeField input::-webkit-calendar-picker-indicator {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+/* Print friendly */
+@media print {
+  .timeField input {
+    border-bottom: 1px solid #000;
+  }
+}
+/* Date field cell */
+.dateFieldCell {
+  padding: 6px;
+}
+
+/* Wrapper */
+.dateField {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label */
+.dateField label {
+  font-size: 9pt;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+/* Input */
+.dateField input {
+  border: none;
+  border-bottom: 1px solid #000;
+  outline: none;
+  background: transparent;
+  font-size: 11pt;
+  padding: 2px 0;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Remove ugly browser text */
+.dateField input::-webkit-datetime-edit {
+  color: #000;
+}
+
+/* Arabic side label */
+.dateFieldAr {
+  vertical-align: bottom;
+  font-family: "Arial Arabic", Arial, sans-serif;
+  direction: rtl;
+  text-align: right;
+  font-weight: bold;
+  font-size: 9pt;
+}
+.errorField {
+  border-bottom: 2px solid red !important;
+}
+
+.submitRow {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin: 14px 0;
+}
+
+.submitBtn {
+  background: #d80000;
+  color: #fff;
+  padding: 8px 18px;
+  font-size: 11pt;
+  font-weight: bold;
+  border-radius: 4px;
+  border: none;
+}
+
+.draftBtn {
+  background: #eb813a;
+  color: #edecec;
+  padding: 8px 18px;
+  font-size: 11pt;
+  border-radius: 4px;
+  font-weight: bold;
+  border: none;
+}
+/* ================= TERMS IMAGE ================= */
+
+.termsImgWrapper {
+  border: 1px solid #000;
+  margin-top: 12px;
+  padding: 8px;
+}
+
+.termsImgWrapper img {
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid #000;
+}
+
+.agreeRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 10.5pt;
+}
+
+.agreeRow input {
+  margin-top: 2px;
+}

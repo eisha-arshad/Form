@@ -1,0 +1,13 @@
+<img src="{{ logo }}">
+<h2>HARLEY-DAVIDSON DHAHRAN</h2>
+
+<table>
+  <tr>
+    <td>Quotation No: {{ job.quotation_no }}</td>
+    <td>VIN: {{ job.vin_no }}</td>
+  </tr>
+</table>
+
+{% for i in job.inspections %}
+<p>{{ i.label }} — {{ i.status }}</p>
+{% endfor %}

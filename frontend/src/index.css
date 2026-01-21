@@ -1,0 +1,19 @@
+.formGrid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 20px;
+}
+
+
+.section {
+border: 1px solid #000;
+padding: 10px;
+}
+
+
+.row {
+display: grid;
+grid-template-columns: 120px repeat(3, 30px);
+align-items: center;
+gap: 10px;
+}
