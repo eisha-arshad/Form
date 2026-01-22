@@ -1,6 +1,6 @@
 .page {
   max-width: 900px;
-  width: 100%;
+  width: 95%;
   margin: auto;
   padding: 8px;
   box-sizing: border-box;
@@ -23,6 +23,7 @@ th {
 * {
   color: #000000;
 }
+
 body {
   background: #FFFFFF;
 }

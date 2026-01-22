@@ -479,19 +479,39 @@ payload.append("receive_deliver", JSON.stringify(receiveDeliver));
   /* ================= HELPERS ================= */
 
   function box(label, idx) {
-    return (
-      <div key={label} className={styles.gridRow}>
-        <div className={styles.itemName}>{label}</div>
-        {["excellent", "medium", "bad"].map(v => (
-          <div
-            key={`${label}-${v}`}
-            className={`${styles.gridBox} ${styles[v]} ${inspection[label] === v ? styles.active : ""}`}
-            onClick={() => select(label, v)}
-          />
-        ))}
-      </div>
-    );
-  }
+  const value = inspection[label];
+
+  // Map value to color
+  const colorMap = {
+    excellent: "green",
+    medium: "orange",
+    bad: "red",
+  };
+
+  return (
+    <div key={label} className={styles.gridRow}>
+      <div className={styles.itemName}>{label}</div>
+      {["excellent", "medium", "bad"].map(v => (
+        <div
+          key={`${label}-${v}`}
+          className={styles.gridBox} // only base box style
+          style={{
+            borderColor: colorMap[v],
+            color: colorMap[v],
+            fontWeight: "bold",
+            textAlign: "center",
+            lineHeight: "24px", // center vertically
+            cursor: "pointer"
+          }}
+          onClick={() => select(label, v)}
+        >
+          {value === v ? "✔" : ""}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 
   function section(leftTitle, rightTitle, leftItems, rightItems) {
     return (
