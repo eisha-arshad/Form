@@ -292,7 +292,6 @@ table { width:100%; border-collapse:collapse; }
    padding: 10px; background: #fff; border-radius: 6px; } 
 .sectionTitle { text-align: center; font-weight: bold; 
   font-size: 14px; margin-bottom: 10px; background: #f2f2f2; padding: 6px; border-bottom: 1px solid #ccc; }
-  /* ================= REQUEST / REMARKS ================= */
 /* OUTER holder */
 .requestWrapper {
   width: 100%;
@@ -398,7 +397,6 @@ table { width:100%; border-collapse:collapse; }
   background: transparent;
   padding-left: 6px;
 }
-/* ================= QUALITY CHECK ================= */
 .qcTable {
   width: 100%;
   font-weight: normal;
@@ -454,7 +452,6 @@ table { width:100%; border-collapse:collapse; }
   border: 1px solid #000;
 }
 
-/* ================= NOTE ================= */
 .noteBox {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -483,7 +480,6 @@ table { width:100%; border-collapse:collapse; }
   font-size: 10.5pt;
 }
 
-/* ================= CUSTOMER ================= */
 
 .customerTable {
   width: 100%;
@@ -559,7 +555,6 @@ table { width:100%; border-collapse:collapse; }
 
 }
 
-/* ================= TIME ================= */
 /* .timeRow {
   display: flex;
   margin-top: 12px;  
@@ -570,7 +565,6 @@ table { width:100%; border-collapse:collapse; }
   gap: 16px;
 } */
 
-/* ================= BOTTOM RED ================= */
 .bottomRed {
   height: 6px;
   background: #d80000;
@@ -643,7 +637,6 @@ table { width:100%; border-collapse:collapse; }
   justify-content: space-between;
   margin-top: 6px;
 }
-/* ================= TIME ROW ================= */
 .timeRow {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -771,7 +764,6 @@ table { width:100%; border-collapse:collapse; }
   font-weight: bold;
   border: none;
 }
-/* ================= TERMS IMAGE ================= */
 
 .termsImgWrapper {
   border: 1px solid #000;

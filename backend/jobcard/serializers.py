@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 from rest_framework import serializers
 from .models import JobCard
 
@@ -10,7 +10,6 @@ class JobCardSerializer(serializers.ModelSerializer):
     class Meta:
         model = JobCard
         fields = "__all__"
-=======
 # from rest_framework import serializers
 # from .models import JobCard, InspectionItem
 
@@ -37,11 +36,3 @@ class JobCardSerializer(serializers.ModelSerializer):
 #             )
 
 #         return jobcard
-from rest_framework import serializers
-from .models import JobCard
-
-class JobCardSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = JobCard
-        fields = "__all__"
->>>>>>> 9def5513a580d8d84c913e5946614c04a42da01b

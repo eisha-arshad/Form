@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import json
 import logging
 from smtplib import SMTPException
@@ -29,11 +28,9 @@ class JobCardViewSet(viewsets.ModelViewSet):
         """
         Creates a JobCard and sends an email notification to the customer.
         """
-        # ================= SAFE DATA =================
         data = request.data.dict() if hasattr(request.data, "dict") else request.data
         pdf_file = request.FILES.get("pdf", None)
 
-        # ================= JSON FIELDS FIX =================
         json_fields = ["inspection", "requests", "qc", "customer", "receive_deliver"]
 
         for field in json_fields:
@@ -47,7 +44,6 @@ class JobCardViewSet(viewsets.ModelViewSet):
             elif not isinstance(value, dict):
                 data[field] = {}
 
-        # ================= SERIALIZER =================
         serializer = self.get_serializer(data=data)
 
         if not serializer.is_valid():
@@ -57,7 +53,6 @@ class JobCardViewSet(viewsets.ModelViewSet):
 
         jobcard = serializer.save(pdf_file=pdf_file)
 
-        # ================= EMAIL LOGIC =================
         try:
             customer = jobcard.customer or {}
             user_email = (customer.get("email") or "").strip()
@@ -99,7 +94,6 @@ Thank you.
                     to=recipients,
                 )
 
-                # ================= ATTACH PDF SAFELY =================
                 if jobcard.pdf_file:
                     try:
                         with jobcard.pdf_file.open("rb") as f:
@@ -116,7 +110,6 @@ Thank you.
                         except (IOError, OSError):
                             pass
 
-                # ================= SEND EMAIL =================
                 try:
                     email.send(fail_silently=False)
                     print("Email sent successfully")
@@ -134,7 +127,7 @@ Thank you.
             logger.exception("Unexpected error in email logic for JobCard %s", jobcard.id)
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-=======
+
 # from rest_framework.views import APIView
 # from rest_framework.response import Response
 # from rest_framework.generics import RetrieveUpdateAPIView
@@ -180,15 +173,3 @@ Thank you.
 #         response['Content-Disposition'] = f'inline; filename="jobcard_{job.id}.pdf"'
 
 #         return response
-
-
-from rest_framework import viewsets
-from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
-from .models import JobCard
-from .serializers import JobCardSerializer
-
-class JobCardViewSet(viewsets.ModelViewSet):
-    queryset = JobCard.objects.all().order_by('-created_at')
-    serializer_class = JobCardSerializer
-    parser_classes = (MultiPartParser, FormParser, JSONParser)
->>>>>>> 9def5513a580d8d84c913e5946614c04a42da01b

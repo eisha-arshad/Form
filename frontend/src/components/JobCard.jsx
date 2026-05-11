@@ -13,7 +13,6 @@ import termsImg from "../assets/terms_conditions.jpeg";
 export default function JobCard() {
   const pageRef = useRef(null);
 
-  /* ================= STATE ================= */
   const [inspection, setInspection] = useState(() =>
     JSON.parse(localStorage.getItem("jobcard_inspection")) || {}
   );
@@ -52,13 +51,7 @@ const [qc, setQc] = useState(() =>
   }
 );
 
-// const [customer, setCustomer] = useState(() =>
-//   JSON.parse(localStorage.getItem("jobcard_customer")) || {
-//     name: "",
-//     date: "",
-//     satisfaction: ""
-//   }
-// );
+
 const [customer, setCustomer] = useState(() =>
   JSON.parse(localStorage.getItem("jobcard_customer")) || {
     name: "",
@@ -71,13 +64,13 @@ const [customer, setCustomer] = useState(() =>
   }
 );
 
-const [customer, setCustomer] = useState(() =>
-  JSON.parse(localStorage.getItem("jobcard_customer")) || {
-    name: "",
-    date: "",
-    satisfaction: ""
-  }
-);
+// const [customer, setCustomer] = useState(() =>
+//   JSON.parse(localStorage.getItem("jobcard_customer")) || {
+//     name: "",
+//     date: "",
+//     satisfaction: ""
+//   }
+// );
 
 
   const [receiveDeliver, setReceiveDeliver] = useState(() =>
@@ -100,7 +93,6 @@ const [customer, setCustomer] = useState(() =>
   const [submitted, setSubmitted] = useState(false);
  
 
-  /* ================= TIME IN AUTO ================= */
   useEffect(() => {
     setReceiveDeliver(prev => ({
       ...prev,
@@ -134,7 +126,6 @@ setCustomer({
 
 const [agree, setAgree] = useState(false);
 
-  /* ================= LOCAL STORAGE PERSISTENCE ================= */
 useEffect(() => {
   localStorage.setItem("jobcard_header", JSON.stringify(header));
 }, [header]);
@@ -164,7 +155,6 @@ useEffect(() => {
 }, [signature]);
 
 
-  /* ================= VALIDATION ================= */
   const requiredFields = {
     "header.quotation": header.quotation,
     "header.sales": header.sales,
@@ -175,11 +165,9 @@ useEffect(() => {
     "receiveDeliver.receiveDate": receiveDeliver.receiveDate,
     "receiveDeliver.receiveTime": receiveDeliver.receiveTime,
     "receiveDeliver.deliverDate": receiveDeliver.deliverDate,
-    "receiveDeliver.deliverTime": receiveDeliver.deliverTime,
     "customer.email": customer.email,
     "customer.garageUser": customer.garageUser,
     "receiveDeliver.deliverTime": receiveDeliver.deliverTime
->>>>>>> 9def5513a580d8d84c913e5946614c04a42da01b
   };
 
   const validateForm = () => {
@@ -203,25 +191,7 @@ useEffect(() => {
   const select = (key, val) => setInspection(prev => ({ ...prev, [key]: val }));
 
 
-  /* ================= ACTIONS ================= */
   const handleDraft = async () => {
-<<<<<<< HEAD
-  try {
-    const payload = {
-      quotation: header.quotation || "",
-      sales: header.sales || "",
-      invoice: header.invoice || "",
-      vin: header.vin || "",
-      inspection,
-      requests,
-      qc,
-      customer,
-      receive_deliver: receiveDeliver,
-      signature: signature || "",
-      status: "draft"
-    };
-
-=======
   const payload = {
     quotation: header.quotation?.toString() || "",
     sales: header.sales?.toString() || "",
@@ -232,11 +202,11 @@ useEffect(() => {
     qc,
     customer,
     receive_deliver: receiveDeliver,
+    signature: signature || "",
     status: "draft",
   };
 
   try {
->>>>>>> 9def5513a580d8d84c913e5946614c04a42da01b
     const res = await fetch("http://localhost:8000/api/jobcards/", {
       method: "POST",
       headers: {
@@ -245,17 +215,7 @@ useEffect(() => {
       body: JSON.stringify(payload),
     });
 
-<<<<<<< HEAD
-    const text = await res.text();
-
-    let data;
-    try {
-      data = JSON.parse(text);
-    } catch {
-      console.error("Non JSON Response:", text);
-      alert("Server returned invalid response.");
-      return;
-    }
+    const data = await res.json().catch(() => null);
 
     if (res.ok) {
       alert("Draft saved successfully!");
@@ -267,25 +227,11 @@ useEffect(() => {
   } catch (err) {
     console.error(err);
     alert("Server error.");
-=======
-    if(res.ok){
-      alert("Draft saved successfully!");
-      resetForm();
-    } else {
-      const err = await res.json();
-      console.log("Error response:", err);
-      alert("Failed to save draft.");
-    }
-  } catch(err) {
-    console.error(err);
-    alert("Failed to save draft.");
->>>>>>> 9def5513a580d8d84c913e5946614c04a42da01b
   }
 };
 
 
   const handleSubmit = async () => {
-<<<<<<< HEAD
 
   if (!validateForm()) return;
 
@@ -293,7 +239,6 @@ useEffect(() => {
 
   try {
 
-    // ================= GENERATE PDF =================
     const canvas = await html2canvas(pageRef.current, {
       scale: 1,
       useCORS: true,
@@ -357,7 +302,6 @@ useEffect(() => {
     // blob
     const pdfBlob = pdf.output("blob");
 
-    // ================= FORMDATA =================
     const formData = new FormData();
 
     formData.append("quotation", header.quotation || "");
@@ -410,7 +354,6 @@ useEffect(() => {
       "jobcard.pdf"
     );
 
-    // ================= API =================
     const res = await fetch(
       "http://localhost:8000/api/jobcards/",
       {
@@ -456,51 +399,9 @@ useEffect(() => {
   }
 };
 
-  /* ================= RENDER ================= */
   return (
-<div className={styles.page} ref={pageRef}>
-=======
-  if (!validateForm()) return;
+  <div className={styles.page} ref={pageRef}>
 
-  const payload = new FormData();
-
-payload.append("quotation", header.quotation?.toString() || "");
-payload.append("sales", header.sales?.toString() || "");
-payload.append("invoice", header.invoice?.toString() || "");
-payload.append("vin", header.vin?.toString() || "");
-
-
-payload.append("inspection", JSON.stringify(inspection));
-payload.append("requests", JSON.stringify(requests));
-payload.append("qc", JSON.stringify(qc));
-payload.append("customer", JSON.stringify(customer));
-payload.append("receive_deliver", JSON.stringify(receiveDeliver));
-
-  if(signature) payload.append("signature", signature); // signature as base64 image
-
-  try {
-    const res = await fetch("http://localhost:8000/api/jobcards/", {
-      method: "POST",
-      body: payload
-    });
-    if(res.ok){
-      setSubmitted(true);
-      resetForm();
-      alert("Job Card Submitted Successfully!");
-    }
-  } catch(err){
-    console.error(err);
-    alert("Failed to submit job card.");
-  }
-};
-
-
-  /* ================= RENDER ================= */
-  return (
-    <div className={styles.page}>
-
->>>>>>> 9def5513a580d8d84c913e5946614c04a42da01b
-      {/* ================= HEADER ================= */}
       <table className={styles.headerTable}>
         <tbody>
           <tr>
@@ -528,7 +429,6 @@ payload.append("receive_deliver", JSON.stringify(receiveDeliver));
         </tbody>
       </table>
 
-      {/* ================= BIKE IMAGES ================= */}
       <table className={styles.bikes}>
         <tbody>
           <tr>
@@ -538,7 +438,6 @@ payload.append("receive_deliver", JSON.stringify(receiveDeliver));
         </tbody>
       </table>
 
-      {/* ================= SECTIONS ================= */}
       {section("TIRES", "BRAKE SYSTEM",
         ["Front", "Rear", "Rear 2 Tri-Glide Only"],
         ["Front Pads","Rear Pads","Front Master Cylinder","Rear Master Cylinder","Parking Brake Adjust","Tri-Glide Only"]
@@ -559,7 +458,6 @@ payload.append("receive_deliver", JSON.stringify(receiveDeliver));
         ["Clutch Operation","Air Filter","Lighting","Horn","Cables / Lines","Exhaust"]
       )}
 
-      {/* ================= REQUEST / REMARKS ================= */}
 <div className={styles.reqBlock}>
   {["requested", "remarks"].map((type) => (
     <div key={type} className={styles.reqBox}>
@@ -585,7 +483,6 @@ payload.append("receive_deliver", JSON.stringify(receiveDeliver));
   ))}
 </div>
 
-      {/* ================= QUALITY CHECK ================= */}
       <div className={styles.qcHeaderRow}>QUALITY CHECK ROAD TEST</div>
       <div className={styles.reqBlock}>
         { ["START KM", "END KM", "REMARKS", "SIGNATURE"].map((label, colIdx) => (
@@ -613,8 +510,6 @@ payload.append("receive_deliver", JSON.stringify(receiveDeliver));
         ))}
       </div>
 
-<<<<<<< HEAD
-  {/* ================= CUSTOMER INFO ================= */}
 <table className={styles.customerTable}>
   <tbody>
 
@@ -789,42 +684,9 @@ payload.append("receive_deliver", JSON.stringify(receiveDeliver));
 
   </tbody>
 </table>
-=======
-      {/* ================= CUSTOMER INFO ================= */}
       <table className={styles.customerTable}>
         <tbody>
-          <tr>
-            <td>Customer Name:
-              <input
-                data-field="customer.name"
-                className={errors["customer.name"] ? styles.errorInput : ""}
-                value={customer.name}
-                onChange={e => setCustomer({...customer,name:e.target.value})}
-              />
-            </td>
-            <td className={styles.arCell}>اسم العميل:</td>
-          </tr>
-          <tr>
-            <td>Customer Signature:
-              { signature ? <img src={signature} className={styles.signImg} /> : <button onClick={()=>setSignOpen(true)}>Add Signature</button> }
-            </td>
-            <td className={styles.arCell}>توقيع العميل:</td>
-          </tr>
-          <tr>
-            <td className={styles.dateFieldCell}>
-              <div className={styles.dateField}>
-                <label>Date</label>
-                <input
-                  type="date"
-                  data-field="customer.date"
-                  className={errors["customer.date"] ? styles.errorInput : ""}
-                  value={customer.date}
-                  onChange={e => setCustomer({...customer,date:e.target.value})}
-                />
-              </div>
-            </td>
-            <td className={`${styles.arCell} ${styles.dateFieldAr}`}><label>تاريخ</label></td>
-          </tr>
+          
           <tr>
             <td>Has Received With Satisfaction:
               <input
@@ -838,9 +700,7 @@ payload.append("receive_deliver", JSON.stringify(receiveDeliver));
           </tr>
         </tbody>
       </table>
->>>>>>> 9def5513a580d8d84c913e5946614c04a42da01b
 
-      {/* ================= RECEIVE / DELIVER ================= */}
       <div className={styles.timeRow}>
         {[ ["Receive Date","receiveDate","date"], ["Receive Time","receiveTime","time"], ["Deliver Date","deliverDate","date"], ["Deliver Time","deliverTime","time"] ].map(([label,key,type]) => (
           <div key={key} className={styles.timeField}>
@@ -858,7 +718,6 @@ payload.append("receive_deliver", JSON.stringify(receiveDeliver));
 
       <div className={styles.bottomRed}></div>
 
-{/* ================= TERMS & CONDITIONS IMAGE ================= */}
 <div className={styles.termsImgWrapper}>
   <img src={termsImg} alt="Terms and Conditions" />
 
@@ -877,13 +736,11 @@ payload.append("receive_deliver", JSON.stringify(receiveDeliver));
 
       
 
-      {/* ================= ACTION BUTTONS ================= */}
       <div className={styles.submitRow}>
         <button className={styles.draftBtn} onClick={handleDraft}>Save as Draft</button>
         <button className={styles.submitBtn} onClick={handleSubmit}>Submit</button>
       </div>
 
-      {/* ================= SUCCESS POPUP ================= */}
       { submitted && (
         <div className={styles.modal}>
           <div className={styles.modalBox}>
@@ -898,10 +755,8 @@ payload.append("receive_deliver", JSON.stringify(receiveDeliver));
         </div>
       )}
 
-      {/* ================= PRINT ================= */}
       <button className={styles.printBtn} onClick={()=>window.print()}>PRINT / PDF</button>
 
-      {/* ================= SIGNATURE MODAL ================= */}
       { signOpen && (
         <div className={styles.modal}>
           <div className={styles.modalBox}>
@@ -922,8 +777,7 @@ payload.append("receive_deliver", JSON.stringify(receiveDeliver));
   );
 
 
-  /* ================= HELPERS ================= */
-
+// eslint-disable-next-line no-unused-vars
   function box(label, idx) {
   const value = inspection[label];
 
