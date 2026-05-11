@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import SignatureCanvas from "react-signature-canvas";
+
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+
 import styles from "../styles/JobCard.module.css";
 
 import logo from "../assets/logo.png";
@@ -69,6 +71,15 @@ const [customer, setCustomer] = useState(() =>
   }
 );
 
+const [customer, setCustomer] = useState(() =>
+  JSON.parse(localStorage.getItem("jobcard_customer")) || {
+    name: "",
+    date: "",
+    satisfaction: ""
+  }
+);
+
+
   const [receiveDeliver, setReceiveDeliver] = useState(() =>
     JSON.parse(localStorage.getItem("jobcard_receiveDeliver")) || {
       receiveDate: "",
@@ -96,6 +107,7 @@ const [customer, setCustomer] = useState(() =>
       receiveTime: prev.receiveTime || new Date().toLocaleTimeString()
     }));
   }, []);
+
   const resetForm = () => {
   setHeader({ quotation: "", sales: "", invoice: "", vin: "" });
   setInspection({});
@@ -113,6 +125,10 @@ setCustomer({
   setReceiveDeliver({ receiveDate: "", receiveTime: "", deliverDate: "", deliverTime: "" });
   setSignature(null);
   localStorage.removeItem("jobcard_signature"); // FIX
+
+  setCustomer({ name: "", date: "", satisfaction: "" });
+  setReceiveDeliver({ receiveDate: "", receiveTime: "", deliverDate: "", deliverTime: "" });
+  setSignature(null);
   setErrors({});
 };
 
@@ -162,6 +178,8 @@ useEffect(() => {
     "receiveDeliver.deliverTime": receiveDeliver.deliverTime,
     "customer.email": customer.email,
     "customer.garageUser": customer.garageUser,
+    "receiveDeliver.deliverTime": receiveDeliver.deliverTime
+>>>>>>> 9def5513a580d8d84c913e5946614c04a42da01b
   };
 
   const validateForm = () => {
@@ -187,6 +205,7 @@ useEffect(() => {
 
   /* ================= ACTIONS ================= */
   const handleDraft = async () => {
+<<<<<<< HEAD
   try {
     const payload = {
       quotation: header.quotation || "",
@@ -202,6 +221,22 @@ useEffect(() => {
       status: "draft"
     };
 
+=======
+  const payload = {
+    quotation: header.quotation?.toString() || "",
+    sales: header.sales?.toString() || "",
+    invoice: header.invoice?.toString() || "",
+    vin: header.vin?.toString() || "",
+    inspection,
+    requests,
+    qc,
+    customer,
+    receive_deliver: receiveDeliver,
+    status: "draft",
+  };
+
+  try {
+>>>>>>> 9def5513a580d8d84c913e5946614c04a42da01b
     const res = await fetch("http://localhost:8000/api/jobcards/", {
       method: "POST",
       headers: {
@@ -210,6 +245,7 @@ useEffect(() => {
       body: JSON.stringify(payload),
     });
 
+<<<<<<< HEAD
     const text = await res.text();
 
     let data;
@@ -231,11 +267,25 @@ useEffect(() => {
   } catch (err) {
     console.error(err);
     alert("Server error.");
+=======
+    if(res.ok){
+      alert("Draft saved successfully!");
+      resetForm();
+    } else {
+      const err = await res.json();
+      console.log("Error response:", err);
+      alert("Failed to save draft.");
+    }
+  } catch(err) {
+    console.error(err);
+    alert("Failed to save draft.");
+>>>>>>> 9def5513a580d8d84c913e5946614c04a42da01b
   }
 };
 
 
   const handleSubmit = async () => {
+<<<<<<< HEAD
 
   if (!validateForm()) return;
 
@@ -409,6 +459,47 @@ useEffect(() => {
   /* ================= RENDER ================= */
   return (
 <div className={styles.page} ref={pageRef}>
+=======
+  if (!validateForm()) return;
+
+  const payload = new FormData();
+
+payload.append("quotation", header.quotation?.toString() || "");
+payload.append("sales", header.sales?.toString() || "");
+payload.append("invoice", header.invoice?.toString() || "");
+payload.append("vin", header.vin?.toString() || "");
+
+
+payload.append("inspection", JSON.stringify(inspection));
+payload.append("requests", JSON.stringify(requests));
+payload.append("qc", JSON.stringify(qc));
+payload.append("customer", JSON.stringify(customer));
+payload.append("receive_deliver", JSON.stringify(receiveDeliver));
+
+  if(signature) payload.append("signature", signature); // signature as base64 image
+
+  try {
+    const res = await fetch("http://localhost:8000/api/jobcards/", {
+      method: "POST",
+      body: payload
+    });
+    if(res.ok){
+      setSubmitted(true);
+      resetForm();
+      alert("Job Card Submitted Successfully!");
+    }
+  } catch(err){
+    console.error(err);
+    alert("Failed to submit job card.");
+  }
+};
+
+
+  /* ================= RENDER ================= */
+  return (
+    <div className={styles.page}>
+
+>>>>>>> 9def5513a580d8d84c913e5946614c04a42da01b
       {/* ================= HEADER ================= */}
       <table className={styles.headerTable}>
         <tbody>
@@ -522,6 +613,7 @@ useEffect(() => {
         ))}
       </div>
 
+<<<<<<< HEAD
   {/* ================= CUSTOMER INFO ================= */}
 <table className={styles.customerTable}>
   <tbody>
@@ -697,6 +789,56 @@ useEffect(() => {
 
   </tbody>
 </table>
+=======
+      {/* ================= CUSTOMER INFO ================= */}
+      <table className={styles.customerTable}>
+        <tbody>
+          <tr>
+            <td>Customer Name:
+              <input
+                data-field="customer.name"
+                className={errors["customer.name"] ? styles.errorInput : ""}
+                value={customer.name}
+                onChange={e => setCustomer({...customer,name:e.target.value})}
+              />
+            </td>
+            <td className={styles.arCell}>اسم العميل:</td>
+          </tr>
+          <tr>
+            <td>Customer Signature:
+              { signature ? <img src={signature} className={styles.signImg} /> : <button onClick={()=>setSignOpen(true)}>Add Signature</button> }
+            </td>
+            <td className={styles.arCell}>توقيع العميل:</td>
+          </tr>
+          <tr>
+            <td className={styles.dateFieldCell}>
+              <div className={styles.dateField}>
+                <label>Date</label>
+                <input
+                  type="date"
+                  data-field="customer.date"
+                  className={errors["customer.date"] ? styles.errorInput : ""}
+                  value={customer.date}
+                  onChange={e => setCustomer({...customer,date:e.target.value})}
+                />
+              </div>
+            </td>
+            <td className={`${styles.arCell} ${styles.dateFieldAr}`}><label>تاريخ</label></td>
+          </tr>
+          <tr>
+            <td>Has Received With Satisfaction:
+              <input
+                data-field="customer.satisfaction"
+                className={errors["customer.satisfaction"] ? styles.errorInput : ""}
+                value={customer.satisfaction}
+                onChange={e => setCustomer({...customer,satisfaction:e.target.value})}
+              />
+            </td>
+            <td className={styles.arCell}>تم استلام الدراجة برضا تام:</td>
+          </tr>
+        </tbody>
+      </table>
+>>>>>>> 9def5513a580d8d84c913e5946614c04a42da01b
 
       {/* ================= RECEIVE / DELIVER ================= */}
       <div className={styles.timeRow}>

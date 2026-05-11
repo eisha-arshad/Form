@@ -489,6 +489,7 @@ table { width:100%; border-collapse:collapse; }
   width: 100%;
   border-collapse: collapse;
   border: 1px solid #000;
+
   margin-top: 12px;
   background: #fff;
 }
@@ -533,6 +534,29 @@ table { width:100%; border-collapse:collapse; }
 /* Focus */
 .customerTable input:focus {
   border-bottom: 2px solid #d80000;
+
+  border-top: none;
+  margin-top: 12px; 
+}
+
+.customerTable td {
+  height: 22px;
+  padding-left: 6px;
+   border: 1px solid #000; 
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-left: none;
+   font-weight: normal;     /* 🔥 unbold */
+  font-size: 10.5pt;
+  border-right: none; /* 🔥 vertical lines removed */
+  padding: 8px;
+}
+
+.arCell {
+  direction: rtl;
+  text-align: right;
+  font-family: "Arial Arabic", Arial, sans-serif;
+
 }
 
 /* ================= TIME ================= */
@@ -562,7 +586,6 @@ table { width:100%; border-collapse:collapse; }
   outline: none;
   background: transparent;
 }
-
 /* Signature area */
 .signatureBox {
   margin-top: 8px;
@@ -588,6 +611,12 @@ table { width:100%; border-collapse:collapse; }
 .errorInput {
   border-bottom: 2px solid red !important;
 }
+
+.signImg {
+  height: 40px;
+}
+
+
 .modal {
   position: fixed;
   inset: 0;
@@ -767,6 +796,7 @@ table { width:100%; border-collapse:collapse; }
 .agreeRow input {
   margin-top: 2px;
 }
+
 .timeInOutRow {
   display: flex;
   gap: 20px;
@@ -798,3 +828,4 @@ table { width:100%; border-collapse:collapse; }
   gap: 6px;
   margin-bottom: 10px;
 }
+
