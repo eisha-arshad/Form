@@ -536,7 +536,7 @@ useEffect(() => {
     {/* User Email */}
     <tr>
       <td>
-        User Email:
+        Customer Email:
         <input
           type="email"
           data-field="customer.email"
@@ -553,26 +553,7 @@ useEffect(() => {
       </td>
     </tr>
 
-    {/* Garage User */}
-  {/* Garage User */}
-<tr>
-  <td>
-    Garage User Email:
-    <input
-      type="email"
-      data-field="customer.garageUser"
-      className={errors["customer.garageUser"] ? styles.errorInput : ""}
-      value={customer.garageUser}
-      onChange={e =>
-        setCustomer({ ...customer, garageUser: e.target.value })
-      }
-    />
-  </td>
-
-  <td className={styles.arCell}>
-    البريد الإلكتروني للكراج:
-  </td>
-</tr>
+   
 
     {/* Signature */}
     <tr>
@@ -625,7 +606,7 @@ useEffect(() => {
     <tr>
   <td>
 
-    <div className={styles.satisfactionBlock}>
+    {/* <div className={styles.satisfactionBlock}>
       <label>Has Received With Satisfaction:</label>
 
       <input
@@ -640,7 +621,7 @@ useEffect(() => {
           })
         }
       />
-    </div>
+    </div> */}
 
     {/* TIME IN OUT separated properly */}
     <div className={styles.timeInOutRow}>
@@ -734,7 +715,27 @@ useEffect(() => {
   </label>
 </div>
 
-      
+      <div className={styles.garageEmailRow}>
+
+  <div className={styles.garageEmailLeft}>
+    Garage User Email:
+
+    <input
+      type="email"
+      data-field="customer.garageUser"
+      className={errors["customer.garageUser"] ? styles.errorInput : ""}
+      value={customer.garageUser}
+      onChange={e =>
+        setCustomer({ ...customer, garageUser: e.target.value })
+      }
+    />
+  </div>
+
+  <div className={styles.garageEmailRight}>
+    البريد الإلكتروني للكراج
+  </div>
+
+</div>
 
       <div className={styles.submitRow}>
         <button className={styles.draftBtn} onClick={handleDraft}>Save as Draft</button>

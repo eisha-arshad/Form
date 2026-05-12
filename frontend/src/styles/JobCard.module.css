@@ -821,3 +821,587 @@ table { width:100%; border-collapse:collapse; }
   margin-bottom: 10px;
 }
 
+/* =========================
+   GARAGE EMAIL ROW
+========================= */
+
+.garageEmailRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: 1px solid #000;
+  padding-top: 10px;
+  margin-top: 10px;
+  gap: 20px;
+}
+
+.garageEmailLeft {
+  width: 72%;
+  font-size: 10.5pt;
+  font-weight: normal;
+}
+
+.garageEmailLeft input {
+  width: 142%;
+  border: none;
+  border-bottom: 1px solid #000;
+  outline: none;
+  background: transparent;
+
+  font-size: 10.5pt;
+  font-weight: normal;
+
+  padding: 4px 2px;
+  margin-top: 6px;
+  box-sizing: border-box;
+}
+
+.garageEmailRight {
+  width: 28%;
+
+  direction: rtl;
+  text-align: right;
+
+  font-family: "Arial Arabic", Arial, sans-serif;
+  font-size: 10.5pt;
+  font-weight: normal;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .garageEmailRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .garageEmailLeft,
+  .garageEmailRight {
+    width: 100%;
+  }
+
+  .garageEmailRight {
+    text-align: right;
+  }
+}
+
+/* ===================================
+   MOBILE RESPONSIVE
+=================================== */
+.headerTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+@media (max-width: 768px) {
+   .headerTable,
+  .headerTable tbody,
+  .headerTable tr {
+    display: block;
+    width: 100%;
+  }
+  .page {
+    width: 100%;
+    padding: 6px;
+    overflow-x: hidden;
+  }
+
+  /* ---------- HEADER ---------- */
+
+  .headerTable tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logoCell,
+  .infoCell {
+    width: 100% !important;
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+  .logoCell img {
+    width: 120px;
+    margin: auto;
+    display: block;
+  }
+
+  .infoTable {
+    width: 100%;
+    margin: 0;
+  }
+.infoTable tr {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .infoTable td {
+    font-size: 9pt;
+    padding: 6px;
+    word-break: break-word;
+  }
+  
+
+  /* ---------- BIKES ---------- */
+
+  .bikes tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bikes td {
+    width: 100%;
+    display: block;
+    border-right: 1px solid #000 !important;
+  }
+
+  .bikes img {
+    width: 100%;
+    border-right: 1px solid #000 !important;
+  }
+
+  /* ---------- SECTION ---------- */
+
+  .section tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section td {
+    width: 100% !important;
+    display: block;
+  }
+
+  .head td {
+    font-size: 12pt;
+    text-align: center;
+  }
+
+  /* ---------- GRID ---------- */
+
+  .gridHeader,
+  .gridRow {
+    grid-template-columns: 1fr 50px 50px 50px;
+    gap: 4px;
+  }
+
+  .gridHeader span {
+    font-size: 8pt;
+  }
+
+  .gridBox {
+    width: 42px;
+    height: 22px;
+    font-size: 9pt;
+  }
+
+  .itemName {
+    font-size: 9pt;
+  }
+
+  /* ---------- REQUEST ---------- */
+
+  .reqBlock {
+    flex-direction: column;
+    padding: 6px;
+    gap: 10px;
+  }
+
+  .reqBox {
+    width: 100%;
+    margin: 0;
+  }
+
+  .reqRow {
+    font-size: 9pt;
+  }
+
+  /* ---------- CUSTOMER TABLE ---------- */
+
+  .customerTable tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .customerTable td {
+    width: 100% !important;
+    display: block;
+    box-sizing: border-box;
+  }
+
+  .arCell {
+    text-align: right;
+    margin-top: 4px;
+  }
+
+  /* ---------- TIME ---------- */
+
+  .timeRow {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .timeInOutRow {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* ---------- GARAGE EMAIL ---------- */
+
+  .garageEmailRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .garageEmailLeft,
+  .garageEmailRight {
+    width: 100%;
+  }
+
+  .garageEmailRight {
+    text-align: right;
+  }
+
+  /* ---------- BUTTONS ---------- */
+
+  .submitRow {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .submitBtn,
+  .draftBtn,
+  .printBtn {
+    width: 100%;
+  }
+
+  /* ---------- MODAL ---------- */
+
+  .modalBox {
+    width: 95%;
+  }
+
+  .signPad {
+    width: 100%;
+  }
+
+  /* ---------- INPUT FIX ---------- */
+
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+/* =========================================
+   MOBILE RESPONSIVE FIX
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  *{
+    box-sizing: border-box;
+  }
+
+  body{
+    overflow-x:hidden;
+  }
+
+  .page{
+    width:100%;
+    max-width:100%;
+    padding:8px;
+    overflow-x:hidden;
+  }
+
+  /* =====================================
+     HEADER
+  ===================================== */
+
+  .headerTable,
+  .headerTable tbody,
+  .headerTable tr{
+    display:block;
+    width:100%;
+  }
+
+  .headerTable tr{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .logoCell,
+  .infoCell{
+    width:100% !important;
+    display:block;
+    text-align:center !important;
+    padding:10px 0 !important;
+    margin:0 !important;
+  }
+
+  .logoCell{
+    padding-left:0 !important;
+  }
+
+  .logoCell img{
+    width:120px;
+    margin:auto;
+    display:block;
+  }
+
+  /* =====================================
+     INFO TABLE  🔥 MAIN FIX
+  ===================================== */
+
+  .infoTable{
+    width:100% !important;
+    margin:0 !important;
+    table-layout:fixed;
+  }
+
+  .infoTable tbody{
+    width:100%;
+    display:block;
+  }
+
+  .infoTable tr{
+    display:table-row !important;
+    width:100%;
+  }
+
+  .infoTable td{
+    display:table-cell !important;
+    width:auto !important;
+    padding:8px 6px;
+    font-size:9pt;
+    word-break:break-word;
+  }
+
+  .infoTable td:first-child{
+    width:42% !important;
+    font-weight:bold;
+  }
+
+  .infoTable td:last-child{
+    width:58% !important;
+  }
+
+  .infoTable input{
+    width:100% !important;
+    min-width:0;
+    font-size:16px !important;
+  }
+
+  /* =====================================
+     BIKES
+  ===================================== */
+
+  .bikes,
+  .bikes tbody,
+  .bikes tr{
+    display:block;
+    width:100%;
+  }
+
+  .bikes tr{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .bikes td{
+    width:100% !important;
+    display:block;
+    border-left:1px solid #000 !important;
+    border-right:1px solid #000 !important;
+  }
+
+  .bikes img{
+    width:100%;
+  }
+
+  /* =====================================
+     SECTION
+  ===================================== */
+
+  .section,
+  .section tbody,
+  .section tr{
+    display:block;
+    width:100%;
+  }
+
+  .section tr{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .section td{
+    width:100% !important;
+    display:block;
+  }
+
+  .head td{
+    font-size:12pt;
+    text-align:center;
+  }
+
+  /* =====================================
+     GRID
+  ===================================== */
+
+  .gridHeader,
+  .gridRow{
+    grid-template-columns:1fr 45px 45px 45px;
+    gap:4px;
+  }
+
+  .gridHeader{
+    font-size:8pt;
+  }
+
+  .itemName{
+    font-size:9pt;
+  }
+
+  .gridBox{
+    width:40px;
+    height:20px;
+  }
+
+  /* =====================================
+     REQUEST BLOCK
+  ===================================== */
+
+  .reqBlock{
+    flex-direction:column;
+    gap:10px;
+    padding:8px;
+  }
+
+  .reqBox{
+    width:100%;
+    margin:0;
+  }
+
+  .reqRow{
+    font-size:9pt;
+  }
+
+  /* =====================================
+     CUSTOMER TABLE
+  ===================================== */
+
+  .customerTable,
+  .customerTable tbody,
+  .customerTable tr{
+    display:block;
+    width:100%;
+  }
+
+  .customerTable tr{
+    margin-bottom:8px;
+  }
+
+  .customerTable td{
+    display:block;
+    width:100% !important;
+    border:1px solid #000;
+  }
+
+  .arCell{
+    text-align:right;
+    margin-top:4px;
+  }
+
+  .customerTable input{
+    width:100%;
+    font-size:16px !important;
+  }
+
+  /* =====================================
+     TIME ROW
+  ===================================== */
+
+  .timeRow{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .timeInOutRow{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  /* =====================================
+     GARAGE EMAIL
+  ===================================== */
+
+  .garageEmailRow{
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+  }
+
+  .garageEmailLeft,
+  .garageEmailRight{
+    width:100%;
+  }
+
+  .garageEmailLeft input{
+    width:100% !important;
+  }
+
+  .garageEmailRight{
+    text-align:right;
+  }
+
+  /* =====================================
+     NOTE BOX
+  ===================================== */
+
+  .noteBox{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  /* =====================================
+     BUTTONS
+  ===================================== */
+
+  .submitRow{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .submitBtn,
+  .draftBtn,
+  .printBtn{
+    width:100%;
+  }
+
+  /* =====================================
+     MODAL
+  ===================================== */
+
+  .modalBox{
+    width:95%;
+  }
+
+  .signPad{
+    width:100%;
+  }
+
+  /* =====================================
+     INPUT FIX
+  ===================================== */
+
+  input,
+  textarea,
+  select{
+    font-size:16px !important;
+  }
+
+}
