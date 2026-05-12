@@ -500,11 +500,12 @@ table { width:100%; border-collapse:collapse; }
   font-size: 10.5pt;
   border: none;
 }
-/* Left side */
 .customerTable td:first-child {
-  width: 72%;
-}
-
+    text-align: left !important;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
 /* Arabic side */
 .arCell {
   width: 28%;
@@ -1020,17 +1021,37 @@ table { width:100%; border-collapse:collapse; }
 
   /* ---------- CUSTOMER TABLE ---------- */
 
-  .customerTable tr {
+.customerTable tr {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack English Label, Input, and Arabic Label vertically */
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
   }
-
   .customerTable td {
-    width: 100% !important;
     display: block;
-    box-sizing: border-box;
+    width: 100% !important;
+    border: none !important; /* Remove individual cell borders to clean up look */
+    padding: 4px 0;
+    text-align: left;
   }
-
+.customerTable td:last-child {
+    text-align: right !important;
+    direction: rtl;
+    font-size: 13px;
+    color: #666;
+    margin-top: 4px;
+  }
+  /* Input Field (Beech mein) */
+  .customerTable input {
+    width: 100% !important;
+    height: 45px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important;
+    padding: 10px !important;
+    font-size: 16px !important;
+    display: block;
+  }
   .arCell {
     text-align: right;
     margin-top: 4px;
@@ -1039,15 +1060,17 @@ table { width:100%; border-collapse:collapse; }
   /* ---------- TIME ---------- */
 
   .timeRow {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 15px;
+    width: 100%;
   }
 
   .timeInOutRow {
+    display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
   }
-
   /* ---------- GARAGE EMAIL ---------- */
 
   .garageEmailRow {
@@ -1067,17 +1090,18 @@ table { width:100%; border-collapse:collapse; }
 
   /* ---------- BUTTONS ---------- */
 
-  .submitRow {
+ .submitRow {
+    display: flex;
     flex-direction: column;
     gap: 10px;
-  }
-
-  .submitBtn,
-  .draftBtn,
-  .printBtn {
     width: 100%;
   }
 
+  .submitBtn, .draftBtn, .printBtn {
+    width: 100% !important;
+    padding: 12px;
+    font-size: 11pt;
+  }
   /* ---------- MODAL ---------- */
 
   .modalBox {
@@ -1113,7 +1137,7 @@ table { width:100%; border-collapse:collapse; }
   .page{
     width:100%;
     max-width:100%;
-    padding:8px;
+    padding: 10px;
     overflow-x:hidden;
   }
 
@@ -1297,12 +1321,17 @@ table { width:100%; border-collapse:collapse; }
   .customerTable,
   .customerTable tbody,
   .customerTable tr{
-    display:block;
-    width:100%;
+    display: block !important;
+    width: 100% !important;
+    border: none !important;
+    box-sizing: border-box;
   }
 
   .customerTable tr{
     margin-bottom:8px;
+    margin-bottom: 20px; /* Har block ke beech gap */
+    padding: 5px;
+    border-bottom: 1px solid #eee !important;
   }
 
   .customerTable td{
