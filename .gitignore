@@ -5,3 +5,19 @@ __pycache__
 *.pyc
 .env
 
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Django
+db.sqlite3
+media/
+staticfiles/
+
+# React
+node_modules/
+build/
+
+# Environment
+.env
